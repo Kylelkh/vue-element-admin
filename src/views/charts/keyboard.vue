@@ -1,16 +1,15 @@
 <template>
-  <div class="components-container" style='height:100vh'>
-    <div class='chart-container'>
-      <keyboard-chart height='100%' width='100%'></keyboard-chart>
-    </div>
+  <div class="chart-container">
+    <chart height="100%" width="100%" />
   </div>
 </template>
 
 <script>
-import keyboardChart from '@/components/Charts/keyboard'
+import Chart from '@/components/Charts/Keyboard'
 
 export default {
-  components: { keyboardChart }
+  name: 'KeyboardChart',
+  components: { Chart }
 }
 </script>
 
@@ -18,7 +17,7 @@ export default {
 .chart-container{
   position: relative;
   width: 100%;
-  height: 90%;
+  height: calc(100vh - 84px);
 }
 </style>
 

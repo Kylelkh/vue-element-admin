@@ -2,12 +2,16 @@
   <div class="app-container">
     <el-tabs v-model="activeName">
       <el-tab-pane label="use clipboard  directly" name="directly">
-        <el-input v-model="inputData" placeholder="请输入内容" style='width:400px;'></el-input>
-        <el-button type="primary" icon="document" @click='handleCopy(inputData,$event)'>copy</el-button>
+        <el-input v-model="inputData" placeholder="Please input" style="width:400px;max-width:100%;" />
+        <el-button type="primary" icon="el-icon-document" @click="handleCopy(inputData,$event)">
+          copy
+        </el-button>
       </el-tab-pane>
       <el-tab-pane label="use clipboard by v-directive" name="v-directive">
-        <el-input v-model="inputData" placeholder="请输入内容" style='width:400px;'></el-input>
-        <el-button type="primary" icon="document" v-clipboard:copy='inputData' v-clipboard:success='clipboardSuccess'>copy</el-button>
+        <el-input v-model="inputData" placeholder="Please input" style="width:400px;max-width:100%;" />
+        <el-button v-clipboard:copy="inputData" v-clipboard:success="clipboardSuccess" type="primary" icon="el-icon-document">
+          copy
+        </el-button>
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -15,9 +19,10 @@
 
 <script>
 import clip from '@/utils/clipboard' // use clipboard directly
-import clipboard from '@/directive/clipboard/index.js'  // use clipboard by v-directive
+import clipboard from '@/directive/clipboard/index.js' // use clipboard by v-directive
 
 export default {
+  name: 'ClipboardDemo',
   directives: {
     clipboard
   },
@@ -33,7 +38,7 @@ export default {
     },
     clipboardSuccess() {
       this.$message({
-        message: '复制成功',
+        message: 'Copy successfully',
         type: 'success',
         duration: 1500
       })

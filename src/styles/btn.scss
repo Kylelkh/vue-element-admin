@@ -1,16 +1,11 @@
-$blue:#324157;
-$light-blue:#3A71A8;
-$red:#C03639;
-$pink: #E65D6E;
-$green: #30B08F;
-$tiffany: #4AB7BD;
-$yellow:#FEC171;
-$panGreen: #30B08F;
+@import './variables.scss';
 
 @mixin colorBtn($color) {
   background: $color;
+
   &:hover {
     color: $color;
+
     &:before,
     &:after {
       background: $color;
@@ -53,18 +48,20 @@ $panGreen: #30B08F;
   border-radius: 8px;
   border: none;
   outline: none;
-  margin-right: 25px;
   transition: 600ms ease all;
   position: relative;
   display: inline-block;
+
   &:hover {
     background: #fff;
+
     &:before,
     &:after {
       width: 100%;
       transition: 600ms ease all;
     }
   }
+
   &:before,
   &:after {
     content: '';
@@ -75,6 +72,7 @@ $panGreen: #30B08F;
     width: 0;
     transition: 400ms ease all;
   }
+
   &::after {
     right: inherit;
     top: inherit;
@@ -99,4 +97,3 @@ $panGreen: #30B08F;
   font-size: 14px;
   border-radius: 4px;
 }
-
